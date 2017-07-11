@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 百钱买百鸡
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //今有鸡翁一，值钱伍；鸡母一，值钱三；鸡鶵三，值钱一。凡百钱买鸡百只，问鸡翁、母、鶵各几何？
+            int rooster =0;
+            int hen = 0;
+            int chicken = 0;
+            for (;rooster <20;rooster ++)
+            {
+                hen = 0;//为什么这样？
+                for (;hen<33;hen++)
+                {
+                    chicken =100-rooster-hen;
+                    if (5*rooster+3*hen+chicken /3==100 && chicken /3==0)
+                    {
+                        Console.WriteLine("公鸡有：{0},母鸡有{1},小鸡有：{2}只",rooster,hen,chicken);
+                    }
+                }
+            }
+            Console.ReadLine();
+        }
+    }
+}

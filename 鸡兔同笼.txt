@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 鸡兔同笼
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //今有雉兔同笼，上有三十五头，下有九十四足，问雉兔各几何？
+            int chicken = 0;
+            int rabbit = 0;
+            for (;chicken <35;chicken ++)
+            {
+                rabbit = 35 - chicken;
+                if (2*chicken +4*rabbit==94)
+                {
+                    Console.WriteLine ("鸡有{0}只，兔子有{1}只",chicken,rabbit);
+                }
+            }
+            Console.ReadLine ();
+        }
+    }
+}
