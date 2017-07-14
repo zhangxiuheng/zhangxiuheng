@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace book
+{
+    class Book
+    {
+        public string Title{ get;  set;}
+
+        private int PageNum;
+        public int pageNum
+        {
+            get
+            {
+                return PageNum;
+            }
+            set
+            {
+                if (value < 200)
+                {
+                    PageNum = 200;
+                }
+                else
+                {
+                    PageNum = value;
+                }
+            }
+        }
+        public void  book ()
+        {
+            Console.WriteLine("这本书是{0}，共有{1}页", Title,PageNum);
+            
+        }
+            
+     }
+        
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Book book=new Book ();
+            //book.Title = "语文";
+            //book.PageNum = 100;
+            //Console.WriteLine("这本书是{0}，共有{1}页", book.Title, book.pageNum);
+            Book bo = new Book();
+            bo.pageNum = 100;
+            bo.Title = "语文";
+            bo.book();
+            Console.ReadLine();
+        }
+        
+    }
+}
