@@ -1,0 +1,78 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Inherit
+{
+    public class school
+    {
+        public school() { }
+        public school (string name,int age,string from)
+        {
+            this.Name =name;
+            this.Age =age;
+            this.From =from;
+        }
+        public string Name { get; set; }
+        public int Age{get;set;}
+        public string From{get;set;}
+    }
+    public class teacher:school
+    {
+        public teacher (){}
+        public teacher (string name,int age,string from,string subject):base(name,age,from )
+        {
+            this.Subject=subject;
+        }
+        public string Subject{get;set;}
+        public void show()
+        {
+            Console.WriteLine("我是{0}，今年{1}岁，来自{2}，教{3}", Name, Age, From, Subject);
+        }
+    }
+    public class student:school
+    {
+        public student() { }
+        public student(string name,int age,string from,int performance):base(name,age,from)
+        {
+            this.Performance = performance;
+        }
+        public int Performance { get; set; }
+        public void show()
+        {
+            Console.WriteLine("我叫{0}，今年{1}岁，来自{2}，这次的成绩是{3}分", Name, Age, From, Performance);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            school[] sch =new school[4];//把父类定义为一个数组，调用数组中的数据
+            teacher tea = new teacher("王明", 20, "北京", "数学");
+            teacher tea1 = new teacher("张三", 35, "上海", "语文");
+            student stu = new student("小明", 14, "安徽", 85);
+            student stu1 = new student("小红", 15, "江西", 90);
+            sch[0] = tea;
+            sch[1] = tea1;
+            sch[2] = stu;
+            sch[3] = stu1;
+            for (int i = 0; i < sch.Length; i++)
+            {
+                if(sch[i] is teacher )
+                {
+                    teacher tea2 = sch[i] as teacher;
+                    ((teacher)sch[i]).show();
+
+                }
+                else 
+                {
+                    student stu2 = sch[i] as student;
+                    ((student)sch[i]).show();
+                }
+            }
+            Console.ReadLine();
+ 
+        }
+    }
+}
